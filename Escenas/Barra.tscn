@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://e53od6ocseq6"]
+
+[ext_resource type="Script" path="res://Scripts/Barra.gd" id="1_0wsog"]
+
+[sub_resource type="Curve2D" id="Curve2D_t5g0v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -286, 206, 0, 0, 0, 0, -196, 302, 0, 0, 0, 0, -98, 488, 0, 0, 0, 0, 107, 326, 0, 0, 0, 0, 295, 437, 0, 0, 0, 0, 490, 296)
+}
+point_count = 6
+
+[node name="Path2D" type="Path2D"]
+position = Vector2(530, -11)
+curve = SubResource("Curve2D_t5g0v")
+script = ExtResource("1_0wsog")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-286, 206)
+rotates = false
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+
+[node name="_Timer_43135" type="Timer" parent="PathFollow2D"]
+wait_time = 0.2
+one_shot = true
+
+[node name="AreaGrindeable" type="Area2D" parent="."]
+position = Vector2(-287, 206)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaGrindeable"]
+position = Vector2(291, 205)
+rotation = -0.668764
+polygon = PackedVector2Array(-106.017, -16.0592, -76.8461, -204.582, -92.0135, -364.417, -123.826, -356.418, -109.519, -210.01, -139.575, 13.5026, 122.987, 18.3364, 201.629, 215.586, 467.823, 227.114, 464.823, 195.428, 221.925, 188.29, 146.345, -19.2855)
+
+[connection signal="body_entered" from="AreaGrindeable" to="." method="_on_area_grindeable_body_entered"]
+[connection signal="body_exited" from="AreaGrindeable" to="." method="_on_area_grindeable_body_exited"]

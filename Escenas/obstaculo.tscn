@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwyhsty44wg2n"]
+
+[ext_resource type="Texture2D" uid="uid://dacsjc62kokdw" path="res://Captura.PNG" id="1_srwcf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2po0v"]
+size = Vector2(177, 132.455)
+
+[node name="Obstaculo" type="StaticBody2D"]
+position = Vector2(179, 54)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(43, 8)
+scale = Vector2(0.701195, 0.673469)
+texture = ExtResource("1_srwcf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(44, 8)
+scale = Vector2(0.98913, 0.993056)
+shape = SubResource("RectangleShape2D_2po0v")
